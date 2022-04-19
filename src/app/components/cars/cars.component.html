@@ -1,0 +1,16 @@
+<div class="list">
+    <div *ngFor="let car of cars">
+        <div class="card m-1">
+            <img [src]="car.pictures[0]">
+            <div class="card-body">
+                <h5 class="card-title">{{car.title}}</h5>
+                <h6 class="card-title">{{car.price | currency: 'EUR':'symbol'}}</h6>
+                <span class="card-text">{{car.issuance}}<br></span>
+                <span class="card-text" *ngIf="car.sold; else elseBlock">Vendu<br></span>
+                <button class="btn btn-primary" (click)="send(car.id)">Check</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #elseBlock>Disponible<br></ng-template>

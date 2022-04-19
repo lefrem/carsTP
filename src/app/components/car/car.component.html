@@ -1,0 +1,25 @@
+<div class="list">
+    <div>
+        <div class="card m-1">
+            <img [src]="car.pictures[0]">
+            <img [src]="car.pictures[1]">
+            <div class="card-body">
+                <h5 class="card-title">{{car.title}}</h5>
+                <h6 class="card-title">{{car.price | currency: 'EUR':'symbol'}}</h6>
+                <span class="card-text">{{car.address}}<br></span>
+                <span class="card-text">{{car.brand}}<br></span>
+                <span class="card-text">{{car.model}}<br></span>
+                <span class="card-text">{{car.model_year}}<br></span>
+                <span class="card-text">{{car.issuance}}<br></span>
+                <span class="card-text">{{car.mileage}}<br></span>
+                <span class="card-text">{{car.fuel}}<br></span>
+                <span class="card-text">{{car.color}}<br></span>
+                <span class="card-text">{{car.numbers_doors}}<br></span>
+                <span class="card-text">{{car.horse_power}}<br></span>
+                <span class="card-text" *ngIf="car.sold; else elseBlock">Vendu<br></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #elseBlock>Disponible<br></ng-template>
