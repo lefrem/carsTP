@@ -25,11 +25,20 @@ export class ManagementComponent implements OnInit {
   }
 
   sendEdit(car: number) {
-    this.router.navigate(['/', car])
+    this.router.navigate(['/carEdit', car])
   }
 
   sendRemove(car: number) {
-    test
+    console.log(car);
+
+    this.carService.removeById(car).subscribe({
+      next: ok => { },
+      error: err => {
+        console.log(err);
+      }
+    })
+
+    location.reload()
   }
 
 }

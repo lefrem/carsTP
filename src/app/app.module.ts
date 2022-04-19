@@ -12,6 +12,8 @@ import localeFR from '@angular/common/locales/fr';
 import { CarComponent } from './components/car/car.component';
 import { ManagementComponent } from './components/management/management.component';
 import { EditComponent } from './components/edit/edit.component';
+import { AddComponent } from './components/add/add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localeFR);
 
@@ -22,12 +24,15 @@ registerLocaleData(localeFR);
     CarComponent,
     ManagementComponent,
     EditComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]

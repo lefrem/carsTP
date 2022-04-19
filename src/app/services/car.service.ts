@@ -19,4 +19,10 @@ export class CarService {
   fetchById(id: number): Observable<Car> {
     return this.http.get<Car>(`${this.BASE_URL}/${id}`);
   }
+
+  removeById(id: number): Observable<Car> {
+    console.log("jsuis al " + id);
+    console.log(`${this.BASE_URL}/${id}`);
+    return this.http.delete<Car>(`${this.BASE_URL}/${id}`);
+  }
 }
