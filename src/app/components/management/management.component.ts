@@ -29,7 +29,7 @@ export class ManagementComponent implements OnInit {
   }
 
   sendRemove(car: number) {
-
+    test
   }
 
 }
