@@ -1,4 +1,4 @@
-<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<form *ngIf="car" [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
     <label for="title">Title</label>
     <input type="text" id="title" formControlName="title">
@@ -15,8 +15,8 @@
     <label for="model_year">Model Year</label>
     <input type="number" id="model_year" formControlName="model_year">
 
-    <!-- <label for="issuance">Issuance</label>
-    <input type="date" id="issuance" formControlName="issuance" [value]="car.issuance"> -->
+    <label for="issuance">Issuance</label>
+    <input type="date" id="issuance" formControlName="issuance">
 
     <label for="mileage">Mileage</label>
     <input type="number" id="mileage" formControlName="mileage">
@@ -34,9 +34,18 @@
     <input type="number" id="horse_power" formControlName="horse_power">
 
     <label for="price">Price</label>
-    <input type="text" id="price" formControlName="price">
+    <input type="number" id="price" formControlName="price">
 
-    <button>Edit</button>
-    <button type="reset" (click)="onReset()">Clear</button>
+    <label for="pictures">Pictures</label>
+    <input type="text" id="pictures" formControlName="pictures"><br>
+
+    <label>Sold</label><br>
+    <input type="radio" name="sold" formControlName="sold" [value]="true">
+    <label>true</label><br>
+    <input type="radio" name="sold" formControlName="sold" [value]="false">
+    <label>false</label><br>
+
+    <button [disabled]="editForm.invalid" type="submit">Edit</button>
+    <button type="reset">Clear</button>
 
 </form>

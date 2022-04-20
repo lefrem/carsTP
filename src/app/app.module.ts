@@ -1,6 +1,6 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { registerLocaleData } from '@angular/common';
+import { DatePipe, registerLocaleData } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,9 @@ import { ManagementComponent } from './components/management/management.componen
 import { EditComponent } from './components/edit/edit.component';
 import { AddComponent } from './components/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PriceOrderPipe } from './pipes/price-order.pipe';
+import { ResearchPipe } from './pipes/research.pipe';
+import { DateOrderPipe } from './pipes/date-order.pipe';
 
 registerLocaleData(localeFR);
 
@@ -25,6 +28,9 @@ registerLocaleData(localeFR);
     ManagementComponent,
     EditComponent,
     AddComponent,
+    PriceOrderPipe,
+    ResearchPipe,
+    DateOrderPipe,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,10 @@ registerLocaleData(localeFR);
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr' },
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

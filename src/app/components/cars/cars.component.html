@@ -1,13 +1,19 @@
-<div class="list">
-    <div *ngFor="let car of cars">
-        <div class="card m-1">
-            <img [src]="car.pictures[0]">
-            <div class="card-body">
-                <h5 class="card-title">{{car.title}}</h5>
-                <h6 class="card-title">{{car.price | currency: 'EUR':'symbol'}}</h6>
-                <span class="card-text">{{car.issuance}}<br></span>
-                <span class="card-text" *ngIf="car.sold; else elseBlock">Vendu<br></span>
-                <button class="btn btn-primary" (click)="send(car.id)">Check</button>
+<button (click)="switchOrderPrice()" class="btn btn-primary m-2">{{orderPrice}}</button>
+<button (click)="switchOrderDate()" class="btn btn-primary m-2">{{orderDate}}</button>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let car of cars | priceOrder: sortPrice | dateOrder: sortDate"
+            class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card m-1 shadow p-3 bg-body rounded">
+                <img [src]="car.pictures[0]">
+                <hr>
+                <div class="card-body">
+                    <h5 class="card-title">{{car.title}}</h5>
+                    <h6 class="card-title">{{car.price | currency: 'EUR':'symbol'}}</h6>
+                    <span class="card-text">{{car.issuance | date: 'dd/MM/yyyy'}}<br></span>
+                    <span class="card-text" *ngIf="car.sold; else elseBlock">Vendu<br></span>
+                    <button class="btn btn-primary" (click)="send(car.id!)">Check</button>
+                </div>
             </div>
         </div>
     </div>

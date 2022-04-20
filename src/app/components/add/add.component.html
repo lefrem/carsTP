@@ -1,1 +1,51 @@
-<p>add works!</p>
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title">
+
+    <label for="address">Address</label>
+    <input type="text" id="address" formControlName="address">
+
+    <label for="brand">Brand</label>
+    <input type="text" id="brand" formControlName="brand">
+
+    <label for="model">Model</label>
+    <input type="text" id="model" formControlName="model">
+
+    <label for="model_year">Model Year</label>
+    <input type="number" id="model_year" formControlName="model_year">
+
+    <label for="issuance">Issuance</label>
+    <input type="date" id="issuance" formControlName="issuance">
+
+    <label for="mileage">Mileage</label>
+    <input type="number" id="mileage" formControlName="mileage">
+
+    <label for="fuel">Fuel</label>
+    <input type="text" id="fuel" formControlName="fuel">
+
+    <label for="color">Color</label>
+    <input type="text" id="color" formControlName="color">
+
+    <label for="numbers_doors">Numbers Doors</label>
+    <input type="number" id="numbers_doors" formControlName="numbers_doors">
+
+    <label for="horse_power">Horse Power</label>
+    <input type="number" id="horse_power" formControlName="horse_power">
+
+    <label for="price">Price</label>
+    <input type="number" id="price" formControlName="price">
+
+    <label for="pictures">Pictures</label>
+    <input type="text" id="pictures" formControlName="pictures"><br>
+
+    <label>Sold</label><br>
+    <input type="radio" name="sold" formControlName="sold" [value]="true">
+    <label>true</label><br>
+    <input type="radio" name="sold" formControlName="sold" [value]="false">
+    <label>false</label><br>
+
+    <button [disabled]="addForm.invalid" type="submit">Edit</button>
+    <button type="reset">Clear</button>
+
+</form>

@@ -13,16 +13,22 @@ export class CarService {
   constructor(private http: HttpClient) { }
 
   fetchAll(): Observable<Car[]> {
-    return this.http.get<Car[]>(`${this.BASE_URL}`);
+    return this.http.get<Car[]>(`${this.BASE_URL}`)
   }
 
   fetchById(id: number): Observable<Car> {
-    return this.http.get<Car>(`${this.BASE_URL}/${id}`);
+    return this.http.get<Car>(`${this.BASE_URL}/${id}`)
   }
 
   removeById(id: number): Observable<Car> {
-    console.log("jsuis al " + id);
-    console.log(`${this.BASE_URL}/${id}`);
-    return this.http.delete<Car>(`${this.BASE_URL}/${id}`);
+    return this.http.delete<Car>(`${this.BASE_URL}/${id}`)
+  }
+
+  update(car: Car): Observable<Car> {
+    return this.http.put<Car>(`${this.BASE_URL}/${car.id}`, car)
+  }
+
+  add(car: Car): Observable<Car> {
+    return this.http.post<Car>(`${this.BASE_URL}`, car)
   }
 }

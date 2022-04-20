@@ -1,8 +1,9 @@
+<a href="/carAdd">Add Car</a>
 <div *ngFor="let car of cars">
     <div style="border: solid 1px black;">
         <p>{{car.id}}</p>
         <p>{{car.title}}</p>
-        <button class="btn btn-primary" (click)="sendEdit(car.id)">Edit</button>
-        <button class="btn btn-primary" (click)="sendRemove(car.id)">Remove</button>
+        <button class="btn btn-primary" (click)="sendEdit(car.id!)">Edit</button>
+        <button class="btn btn-primary" (click)="sendRemove(car.id!)">Remove</button>
     </div>
 </div>

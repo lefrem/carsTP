@@ -29,15 +29,12 @@ export class ManagementComponent implements OnInit {
   }
 
   sendRemove(car: number) {
-    console.log(car);
-
     this.carService.removeById(car).subscribe({
       next: ok => { },
       error: err => {
         console.log(err);
       }
     })
-
     location.reload()
   }
 
